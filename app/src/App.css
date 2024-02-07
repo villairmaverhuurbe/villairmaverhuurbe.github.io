@@ -1,0 +1,35 @@
+.App {
+  text-align: center;
+  color: black;
+}
+
+.App-logo {
+  height: 150px;
+  pointer-events: none;
+}
+
+.App-header {
+  color: black;
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.App-link {
+  font-size: 12px;
+  color: black;
+}
+
+.App-link {
+  font-size: 12px;
+  color: black;
+}
+
+p {
+  margin-top: -20px;
+  font-size: 25px;
+}
