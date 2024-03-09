@@ -1,33 +1,47 @@
 import React, { useState } from "react";
 
-import homeSluis from "./homeSluis.png";
-import homeSluisSide from "./homeSluisSide.png";
-import homeSluisKamer1_1 from "./homeSluisKamer1-1.jpeg";
-import homeSluisKamer1_2 from "./homeSluisKamer1-2.jpeg";
-import homeSluisKamer1_4 from "./homeSluisKamer1-4.jpeg";
-import homeSluisKamer2_1 from "./homeSluisKamer2-1.jpeg";
-import homeSluisKamer2_2 from "./homeSluisKamer2-2.jpeg";
-import homeSluisKamer2_3 from "./homeSluisKamer2-3.jpeg";
+import homeVlam from "./homeVlam.png";
+import homeVlamSide from "./homeVlamSide.png";
 
-import homeSluisKamer4_1 from "./homeSluisKamer4-1.jpeg";
-import homeSluisKamer4_2 from "./homeSluisKamer4-2.jpeg";
-import homeSluisKamer4_3 from "./homeSluisKamer4-3.jpeg";
+import homeVlamKamer1_1 from "./homeVlamKamer1-1.jpeg";
+import homeVlamKamer1_2 from "./homeVlamKamer1-2.jpeg";
+import homeVlamKamer1_3 from "./homeVlamKamer1-3.jpeg";
 
-import homeSluisKamer5_1 from "./homeSluisKamer5-1.jpeg";
-import homeSluisKamer5_2 from "./homeSluisKamer5-2.jpeg";
-import homeSluisKamer5_3 from "./homeSluisKamer5-3.jpeg";
+import homeVlamKamer2_1 from "./homeVlamKamer2-1.jpeg";
+import homeVlamKamer2_2 from "./homeVlamKamer2-2.jpeg";
+import homeVlamKamer2_3 from "./homeVlamKamer2-3.jpeg";
 
-import homeSluisKamer6_1 from "./homeSluisKamer6-1.jpeg";
-import homeSluisKamer6_2 from "./homeSluisKamer6-2.jpeg";
-import homeSluisKamer6_3 from "./homeSluisKamer6-3.jpeg";
+import homeVlamKamer3_1 from "./homeVlamKamer3-1.jpeg";
+import homeVlamKamer3_2 from "./homeVlamKamer3-2.jpeg";
+import homeVlamKamer3_3 from "./homeVlamKamer3-3.jpeg";
 
-import homeSluisKamer7_1 from "./homeSluisKamer7-1.jpeg";
-import homeSluisKamer7_2 from "./homeSluisKamer7-2.jpeg";
-import homeSluisKamer7_3 from "./homeSluisKamer7-3.jpeg";
+import homeVlamKamer4_1 from "./homeVlamKamer4-1.jpeg";
+import homeVlamKamer4_2 from "./homeVlamKamer4-2.jpeg";
+import homeVlamKamer4_3 from "./homeVlamKamer4-3.jpeg";
 
-import homeSluisKamer8_1 from "./homeSluisKamer8-1.jpeg";
-import homeSluisKamer8_2 from "./homeSluisKamer8-2.jpeg";
-import homeSluisKamer8_3 from "./homeSluisKamer8-3.jpeg";
+import homeVlamKamer5_1 from "./homeVlamKamer5-1.jpeg";
+import homeVlamKamer5_2 from "./homeVlamKamer5-2.jpeg";
+import homeVlamKamer5_3 from "./homeVlamKamer5-3.jpeg";
+
+import homeVlamKamer6_1 from "./homeVlamKamer6-1.jpeg";
+import homeVlamKamer6_2 from "./homeVlamKamer6-2.jpeg";
+import homeVlamKamer6_3 from "./homeVlamKamer6-3.jpeg";
+
+import homeVlamKamer7_1 from "./homeVlamKamer7-1.jpeg";
+import homeVlamKamer7_2 from "./homeVlamKamer7-2.jpeg";
+import homeVlamKamer7_3 from "./homeVlamKamer7-3.jpeg";
+
+import homeVlamKamer8_1 from "./homeVlamKamer8-1.jpeg";
+import homeVlamKamer8_2 from "./homeVlamKamer8-2.jpeg";
+import homeVlamKamer8_3 from "./homeVlamKamer8-3.jpeg";
+
+import homeVlamKamer9_1 from "./homeVlamKamer9-1.jpeg";
+import homeVlamKamer9_2 from "./homeVlamKamer9-2.jpeg";
+import homeVlamKamer9_3 from "./homeVlamKamer9-3.jpeg";
+
+import homeVlamKamer10_1 from "./homeVlamKamer10-1.jpeg";
+import homeVlamKamer10_2 from "./homeVlamKamer10-2.jpeg";
+import homeVlamKamer10_3 from "./homeVlamKamer10-3.jpeg";
 
 import villaIrmaLogo from "./villaIrmaLogo.png";
 
@@ -36,23 +50,27 @@ import { Stack, Divider, Box } from "@mui/material";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-const imagesKamer1 = [homeSluisKamer1_4, homeSluisKamer1_1, homeSluisKamer1_2];
+const imagesKamer1 = [homeVlamKamer1_3, homeVlamKamer1_1, homeVlamKamer1_2];
 
-const imagesKamer2 = [homeSluisKamer2_1, homeSluisKamer2_2, homeSluisKamer2_3];
+const imagesKamer2 = [homeVlamKamer2_1, homeVlamKamer2_3, homeVlamKamer2_2 ];
 
-const imagesKamer3 = [];
+const imagesKamer3 = [homeVlamKamer3_1, homeVlamKamer3_2, homeVlamKamer3_3];
 
-const imagesKamer4 = [homeSluisKamer4_1, homeSluisKamer4_2, homeSluisKamer4_3];
+const imagesKamer4 = [homeVlamKamer4_1, homeVlamKamer4_3, homeVlamKamer4_2];
 
-const imagesKamer5 = [homeSluisKamer5_1, homeSluisKamer5_2, homeSluisKamer5_3];
+const imagesKamer5 = [homeVlamKamer5_1, homeVlamKamer5_2, homeVlamKamer5_3];
 
-const imagesKamer6 = [homeSluisKamer6_1, homeSluisKamer6_2, homeSluisKamer6_3];
+const imagesKamer6 = [homeVlamKamer6_2, homeVlamKamer6_3, homeVlamKamer6_1];
 
-const imagesKamer7 = [homeSluisKamer7_1, homeSluisKamer7_2, homeSluisKamer7_3];
+const imagesKamer7 = [homeVlamKamer7_1, homeVlamKamer7_2, homeVlamKamer7_3];
 
-const imagesKamer8 = [homeSluisKamer8_1, homeSluisKamer8_2, homeSluisKamer8_3];
+const imagesKamer8 = [ homeVlamKamer8_3,homeVlamKamer8_2,  homeVlamKamer8_1];
 
-function Sluis() {
+const imagesKamer9 = [homeVlamKamer9_1, homeVlamKamer9_2, homeVlamKamer9_3];
+
+const imagesKamer10 = [homeVlamKamer10_1, homeVlamKamer10_3, homeVlamKamer10_2];
+
+function Vlam() {
   const [selectedRoom, setSelectedRoom] = React.useState(1);
   return (
     <div className="App">
@@ -64,10 +82,10 @@ function Sluis() {
             width="100%"
             paddingTop="20px"
           >
-            <img src={homeSluis} style={{ width: "150px" }} />
+            <img src={homeVlam} style={{ width: "150px" }} />
             <img
-              src={homeSluisSide}
-              style={{ width: "280px", paddingLeft: "30px" }}
+              src={homeVlamSide}
+              style={{ width: "350px", paddingLeft: "5px" }}
             />
             <Stack
               direction="column"
@@ -75,16 +93,11 @@ function Sluis() {
               sx={{ paddingLeft: "30px" }}
               maxWidth="500px"
             >
-              <Typography variant="h4" color="text.primary" paragraph>
-                Sluisstraat 13, 3000 Leuven
+              <Typography variant="h4" color="text.primary" sx={{textWrap: 'nowrap'}} paragraph>
+                Vlamingenstraat 25, 3000 Leuven
               </Typography>
               <Typography color="text.secondary" textAlign="left">
-                Charmant herenhuis, gelegen in het centrum van Leuven. Aangename
-                buurt met het Sluispark en supermarkt Colruyt op wandelafstand.
-                Acht studenten delen gemeenschappelijke keuken en kleine tuin
-                met fietsenstalling. Vier verdiepingen met elk twee kamers.
-                Badkamer met douche en toilet per verdieping. Draadloos internet
-                en intercom systeem aanwezig.
+                Elegant studentenhuis, gelegen in centrum Leuven. Aangename buurt met het Stadspark, de Grote en de Oude markt op wandelafstand. Dicht bij faculteit Rechten, Talen en Economie. 10 studio’s met gemeenschappelijke fietsenstalling. Drie verdiepingen met privé badkamer en keuken. Draadloos internet.
               </Typography>
             </Stack>
           </Stack>
@@ -130,6 +143,16 @@ function Sluis() {
                 Kamer 8
               </a>
             </Typography>
+            <Typography color="text.secondary" textAlign="left" paragraph>
+              <a href="#" onClick={() => setSelectedRoom(9)}>
+                Kamer 9
+              </a>
+            </Typography>
+            <Typography color="text.secondary" textAlign="left" paragraph>
+              <a href="#" onClick={() => setSelectedRoom(10)}>
+                Kamer 10
+              </a>
+            </Typography>
           </Stack>
           <Divider variant="middle" width="80%" sx={{ margin: "5px" }} />
 
@@ -145,13 +168,7 @@ function Sluis() {
                   Kamer 1
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
-                  Charmante ruime kamer (4x5m²) op de gelijkvloers. Twee grote
-                  ramen met gordijnen en luiken met zicht op rivier de Dijle.
-                  Antieke haardschouw, radiator en eigen lavabo aanwezig. Houten
-                  parketvloer en hoog plafond. Intercom systeem aanwezig.
-                  Gedeeld toilet, gedeelde douche met 1 andere persoon van
-                  datzelfde verdiep. Gemeenschappelijke keuken met een gedeelde
-                  tuin met ruimte voor fietsen. Draadloos internet.
+                Lumineuze kamer op gelijkvloers (16m²) met twee grote ramen en behoud van originele marmeren schouwmantel. De kamer heeft ook een hoogslaperconstructie en is daardoor extra ruim. Bezit eigen kitchenette en badkamer (lavabo en douche). Toilet in de gang en te delen met 3 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig. 
                 </Typography>
                 <Carousel useKeyboardArrows={false}>
                   {imagesKamer1.map((URL, index) => (
@@ -173,12 +190,7 @@ function Sluis() {
                   Kamer 2
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
-                  Gezellige mezzanine (3x5m²) op de gelijkvloers. Groot raam met
-                  gordijnen en uitzicht op de tuin. Radiator en eigen lavabo
-                  aanwezig. Houten parketvloer en hoog plafond. Intercom systeem
-                  aanwezig. Gedeeld toilet, gedeelde douche met 1 andere persoon
-                  van datzelfde verdiep. Gemeenschappelijke keuken met een
-                  gedeelde tuin met ruimte voor fietsen. Draadloos internet.
+                Aangename kamer op gelijkvloers (18m²) met uitzicht op privé terras. Rustig milieu met eigen kitchenette en badkamer (lavabo en douche). Behoud van originele marmeren schouwmantel en door de hoogslaperconstructie is de kamer extra ruim. Toilet aanwezig in de gang en te delen met 3 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig.
                 </Typography>
                 <Carousel useKeyboardArrows={false}>
                   {imagesKamer2.map((URL, index) => (
@@ -200,13 +212,7 @@ function Sluis() {
                   Kamer 3
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
-                  Charmante ruime kamer (4x5m²) op eerste verdieping. Drie grote
-                  ramen met gordijnen met zicht op rivier de Dijle. Antieke
-                  haardschouw en drie radiatoren aanwezig. Houten parketvloer en
-                  hoog plafond. Intercom systeem aanwezig. Gedeeld toilet,
-                  gedeelde douche met 1 andere persoon van datzelfde verdiep.
-                  Gemeenschappelijke keuken met een gedeelde tuin met ruimte
-                  voor fietsen. Draadloos internet.
+                Ruime dubbele kamer op gelijkvloers (23m²) met uitzicht op privé terras. Rustig studiemilieu met eigen kitchenette en badkamer (lavabo en douche). Toilet aanwezig in de gang en te delen met 3 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig. 
                 </Typography>
                 <Carousel useKeyboardArrows={false}>
                   {imagesKamer3.map((URL, index) => (
@@ -228,12 +234,7 @@ function Sluis() {
                   Kamer 4
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
-                  Eenvoudige kamer (3x5m²) op eerste verdieping. Groot raam met
-                  gordijnen en uitzicht op de tuin. Radiator, houten parketvloer
-                  en hoog plafond. Intercom systeem aanwezig. Gedeeld toilet,
-                  gedeelde douche met 1 andere persoon van datzelfde verdiep.
-                  Gemeenschappelijke keuken met een gedeelde tuin met ruimte
-                  voor fietsen. Draadloos internet.
+                Lumineuze kamer op eerste verdieping (22m²) met twee grote ramen. Rustig studiemilieu met eigen kitchenette en badkamer (lavabo en douche). Toilet aanwezig in de gang en te delen met 3 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig. 
                 </Typography>
                 <Carousel useKeyboardArrows={false}>
                   {imagesKamer4.map((URL, index) => (
@@ -255,13 +256,7 @@ function Sluis() {
                   Kamer 5
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
-                  Charmante ruime kamer (4x5m²) op tweede verdieping. Drie grote
-                  ramen met gordijnen met zicht op rivier de Dijle. Antieke
-                  haardschouw en drie radiatoren aanwezig. Houten parketvloer en
-                  hoog plafond. Intercom systeem aanwezig. Gedeeld toilet,
-                  gedeelde douche met 1 andere persoon van datzelfde verdiep.
-                  Gemeenschappelijke keuken met een gedeelde tuin met ruimte
-                  voor fietsen. Draadloos internet.
+                De kleinste, maar ook de gezelligste kamer van de eerste verdieping (14m²). De kamer heeft een hoogslaperconstructie waardoor veel mogelijk is. Eigen kitchenette en badkamer (lavabo en douche). Toilet aanwezig in de gang en te delen met 3 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig.
                 </Typography>
                 <Carousel useKeyboardArrows={false}>
                   {imagesKamer5.map((URL, index) => (
@@ -283,12 +278,7 @@ function Sluis() {
                   Kamer 6
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
-                  Stijlvolle kamer (3x5m²) op tweede verdieping. Groot raam met
-                  gordijnen en uitzicht op de tuin. Radiator, houten parketvloer
-                  en hoog plafond. Intercom systeem aanwezig. Gedeeld toilet,
-                  gedeelde douche met 1 andere persoon van datzelfde verdiep.
-                  Gemeenschappelijke keuken met een gedeelde tuin met ruimte
-                  voor fietsen. Draadloos internet.
+                Ruime dubbele kamer op eerste verdieping (22m²). Rustig studiemilieu met eigen kitchenette en badkamer (lavabo en douche). Toilet aanwezig in de gang en te delen met 3 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig. 
                 </Typography>
                 <Carousel useKeyboardArrows={false}>
                   {imagesKamer6.map((URL, index) => (
@@ -310,12 +300,7 @@ function Sluis() {
                   Kamer 7
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
-                  Gezellige zolderkamer (4x5m²) op derde verdieping. Twee
-                  veluxen en 1 groter ramen met gordijnen. Radiator, houten
-                  parketvloer en hoog plafond met antieke balken. Intercom
-                  systeem aanwezig. Gedeeld toilet, gedeelde douche met 1 andere
-                  persoon van datzelfde verdiep. Gemeenschappelijke keuken met
-                  een gedeelde tuin met ruimte voor fietsen. Draadloos internet.
+                Een gezellige kamer op de tweede verdieping (13m²) met uitzicht op de daken van onze pittoreske stad Leuven. Kamer heeft eigen kitchenette en badkamer (lavabo en douche). Rustig studiemilieu met toilet aanwezig in de gang om te delen met 4 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig. 
                 </Typography>
                 <Carousel useKeyboardArrows={false}>
                   {imagesKamer7.map((URL, index) => (
@@ -338,15 +323,56 @@ function Sluis() {
                   Kamer 8
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
-                  Gezellige zolderkamer (3x5m²) op derde verdieping. Grote velux
-                  met uitzicht op centrum Leuven. Radiator, houten parketvloer
-                  en hoog plafond met antieke balken. Intercom systeem aanwezig.
-                  Gedeeld toilet, gedeelde douche met 1 andere persoon van
-                  datzelfde verdiep. Gemeenschappelijke keuken met een gedeelde
-                  tuin met ruimte voor fietsen. Draadloos internet.
+                Sfeervolle kamer op de tweede verdieping (14m²) met lumineuze ramen. Rustig studiemilieu met eigen kitchenette en badkamer (lavabo en douche). Toilet aanwezig in de gang en te delen met 4 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig. 
                 </Typography>
                 <Carousel useKeyboardArrows={false}>
                   {imagesKamer8.map((URL, index) => (
+                    <div className="slide">
+                      <img alt="sample_file" src={URL} key={index} />
+                    </div>
+                  ))}
+                </Carousel>
+              </Box>
+            )}
+
+{selectedRoom === 9 && (
+              <Box>
+                <Typography
+                  color="text.primary"
+                  variant="h5"
+                  textAlign="left"
+                  paragraph
+                >
+                  Kamer 9
+                </Typography>
+                <Typography color="text.secondary" textAlign="left" paragraph>
+                Ruime mezzanine op de tweede verdieping (28m²) met lumineuze ramen. Rustig studiemilieu met eigen kitchenette en badkamer (lavabo en douche). Toilet aanwezig in de gang en te delen met 4 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig. 
+                </Typography>
+                <Carousel useKeyboardArrows={false}>
+                  {imagesKamer9.map((URL, index) => (
+                    <div className="slide">
+                      <img alt="sample_file" src={URL} key={index} />
+                    </div>
+                  ))}
+                </Carousel>
+              </Box>
+            )}
+
+{selectedRoom === 10 && (
+              <Box>
+                <Typography
+                  color="text.primary"
+                  variant="h5"
+                  textAlign="left"
+                  paragraph
+                >
+                  Kamer 10
+                </Typography>
+                <Typography color="text.secondary" textAlign="left" paragraph>
+                Ruime dubbele kamer op de tweede verdieping (22m²) met eigen privé terras. Rustig studiemilieu met eigen kitchenette en badkamer (lavabo en douche). Toilet aanwezig in de gang en te delen met 4 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig. 
+                </Typography>
+                <Carousel useKeyboardArrows={false}>
+                  {imagesKamer10.map((URL, index) => (
                     <div className="slide">
                       <img alt="sample_file" src={URL} key={index} />
                     </div>
@@ -377,4 +403,4 @@ function Sluis() {
   );
 }
 
-export default Sluis;
+export default Vlam;

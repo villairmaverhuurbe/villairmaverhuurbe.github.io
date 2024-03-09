@@ -59,7 +59,7 @@ function Home() {
             >
               <CardActionArea
                 onClick={() => {
-                  window.location.href = "/sluis";
+                  window.location.href = "?sluis";
                 }}
               >
                 <CardMedia
@@ -94,6 +94,11 @@ function Home() {
                 },
               }}
             >
+              <CardActionArea
+                onClick={() => {
+                  window.location.href = "?vlam";
+                }}
+              >
               <CardMedia
                 sx={{ height: 350, backgroundSize: "60%" }}
                 image={homeVlam}
@@ -103,14 +108,14 @@ function Home() {
                 <Typography gutterBottom variant="h6" component="div">
                   Vlam 25
                 </Typography>
+                <Typography fontStyle="italic" paragraph>
+                  Elegant studentenhuis met 10 studio's en gemeenschappelijke fietsenstalling
+                </Typography>
                 <Typography variant="body2" color="text.secondary">
                   Vlamingenstraat 25, 3000 Leuven
                 </Typography>
               </CardContent>
-              {/* <CardActions> */}
-              {/* <Button size="small">Share</Button> */}
-              {/* <Button size="small">Learn More</Button> */}
-              {/* </CardActions> */}
+              </CardActionArea>
             </Card>
           </Stack>
         </Stack>
