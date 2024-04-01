@@ -66,7 +66,7 @@ function Sluis() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const kamer = urlParams.get('kamer');
-  
+
   const [selectedRoom, setSelectedRoom] = React.useState(Number(kamer) || 1);
 
   const showRoomAvailableIcon = (roomNumber) => {
@@ -110,7 +110,7 @@ function Sluis() {
                 en intercom systeem aanwezig.
               </Typography>
             </Stack>
-            <a  target="_blank" href="https://www.kuleuven.be/stuvo/kot/zoeken/prive/kotlabel">
+            <a  target="_blank" rel="noreferrer" href="https://www.kuleuven.be/stuvo/kot/zoeken/prive/kotlabel">
               <img alt="kot label groen" src={kotLabel} style={{ width: "100px", height: "100px" }} />
             </a>
           </Stack>

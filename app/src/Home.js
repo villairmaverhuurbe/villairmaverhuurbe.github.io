@@ -27,7 +27,7 @@ function Home() {
           <Stack alignItems="center" width="100%" paddingTop="20px">
             <Stack direction="row">
             <img src={villaIrmaLogo} style={{ width: "200px", marginLeft:"100px"}} />
-            <a target="_blank" href="https://www.kuleuven.be/stuvo/kot/zoeken/prive/kotlabel">
+            <a target="_blank" rel="noreferrer" href="https://www.kuleuven.be/stuvo/kot/zoeken/prive/kotlabel">
               <img alt="kot label groen" src={kotLabel} style={{ width: "100px", height: "100px" }} />
             </a>
             </Stack>
@@ -65,7 +65,7 @@ function Home() {
             >
               <CardActionArea
                 onClick={() => {
-                  window.location.href = "?sluis";
+                  window.location.href = "/sluis";
                 }}
               >
                 <CardMedia
@@ -102,7 +102,7 @@ function Home() {
             >
               <CardActionArea
                 onClick={() => {
-                  window.location.href = "?vlam";
+                  window.location.href = "/vlam";
                 }}
               >
               <CardMedia
