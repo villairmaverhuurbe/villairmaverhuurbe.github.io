@@ -6,9 +6,9 @@ import Sluis from "./Sluis";
 import Vlam from "./Vlam";
 
 function App() {
-  // return <Sluis/>
-  const currentPath = window.location.href;
-  return currentPath.indexOf("sluis") > 0 ? <Sluis /> : currentPath.indexOf("vlam") > 0 ? <Vlam/> : <Home />;
+  // return <Home/>
+  // const currentPath = window.location.href;
+  // return currentPath.indexOf("sluis") > 0 ? <Sluis /> : currentPath.indexOf("vlam") > 0 ? <Vlam/> : <Home />;
   // <BrowserRouter>
   //   <Routes>
   //     < Route exact path="/" Component={Home}/>

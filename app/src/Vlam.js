@@ -67,9 +67,9 @@ const imagesKamer6 = [homeVlamKamer6_2, homeVlamKamer6_3, homeVlamKamer6_1];
 
 const imagesKamer7 = [homeVlamKamer7_1, homeVlamKamer7_2, homeVlamKamer7_3];
 
-const imagesKamer8 = [ homeVlamKamer8_3,homeVlamKamer8_2,  homeVlamKamer8_1];
+const imagesKamer8 = [homeVlamKamer8_1, homeVlamKamer8_3,homeVlamKamer8_2];
 
-const imagesKamer9 = [homeVlamKamer9_1, homeVlamKamer9_2, homeVlamKamer9_3];
+const imagesKamer9 = [homeVlamKamer9_3, homeVlamKamer9_1, homeVlamKamer9_2];
 
 const imagesKamer10 = [homeVlamKamer10_1, homeVlamKamer10_3, homeVlamKamer10_2];
 
@@ -116,7 +116,7 @@ function Vlam() {
                 Elegant studentenhuis, gelegen in centrum Leuven. Aangename buurt met het Stadspark, de Grote en de Oude markt op wandelafstand. Dicht bij faculteit Rechten, Talen en Economie. 10 studio’s met gemeenschappelijke fietsenstalling. Drie verdiepingen met privé badkamer en keuken. Draadloos internet.
               </Typography>
             </Stack>
-            <a  href="https://www.kuleuven.be/stuvo/kot/zoeken/prive/kotlabel">
+            <a target="_blank" rel="noreferrer" href="https://www.kuleuven.be/stuvo/kot/zoeken/prive/kotlabel">
               <img alt="kot label groen" target="_blank" src={kotLabel} style={{ width: "100px", height: "100px" }} />
             </a>
           </Stack>
@@ -360,7 +360,7 @@ function Vlam() {
                   { showRoomAvailableText(8) } 
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
-                Sfeervolle kamer op de tweede verdieping (14m²) met lumineuze ramen. Rustig studiemilieu met eigen kitchenette en badkamer (lavabo en douche). Toilet aanwezig in de gang en te delen met 4 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig. 
+                Ruime mezzanine op de tweede verdieping (28m²) met lumineuze ramen. Rustig studiemilieu met eigen kitchenette en badkamer (lavabo en douche). Toilet aanwezig in de gang en te delen met 4 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig.
                 </Typography>
                 <Carousel useKeyboardArrows={false}>
                   {imagesKamer8.map((URL, index) => (
@@ -384,7 +384,7 @@ function Vlam() {
                   { showRoomAvailableText(9) } 
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
-                Ruime mezzanine op de tweede verdieping (28m²) met lumineuze ramen. Rustig studiemilieu met eigen kitchenette en badkamer (lavabo en douche). Toilet aanwezig in de gang en te delen met 4 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig. 
+                Sfeervolle kamer op de tweede verdieping (14m²) met lumineuze ramen. Rustig studiemilieu met eigen kitchenette en badkamer (lavabo en douche). Toilet aanwezig in de gang en te delen met 4 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig. 
                 </Typography>
                 <Carousel useKeyboardArrows={false}>
                   {imagesKamer9.map((URL, index) => (
