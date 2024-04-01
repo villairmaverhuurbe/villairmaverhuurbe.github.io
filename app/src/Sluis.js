@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
+import kotLabel from "./Kot-label-groen.png";
 
 import homeSluis from "./homeSluis.png";
 import homeSluisSide from "./homeSluisSide.png";
 import homeSluisKamer1_1 from "./homeSluisKamer1-1.jpeg";
 import homeSluisKamer1_2 from "./homeSluisKamer1-2.jpeg";
 import homeSluisKamer1_4 from "./homeSluisKamer1-4.jpeg";
+
 import homeSluisKamer2_1 from "./homeSluisKamer2-1.jpeg";
 import homeSluisKamer2_2 from "./homeSluisKamer2-2.jpeg";
 import homeSluisKamer2_3 from "./homeSluisKamer2-3.jpeg";
+
+import homeSluisKamer3_1 from "./homeSluisKamer3-1.jpeg";
+import homeSluisKamer3_2 from "./homeSluisKamer3-2.jpeg";
+import homeSluisKamer3_3 from "./homeSluisKamer3-3.jpeg";
 
 import homeSluisKamer4_1 from "./homeSluisKamer4-1.jpeg";
 import homeSluisKamer4_2 from "./homeSluisKamer4-2.jpeg";
@@ -36,11 +43,13 @@ import { Stack, Divider, Box } from "@mui/material";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
+const kamerAvailable = [ /* 1 */ false, /* 2 */ false, /* 3 */  true, /* 4 */ false, /* 5 */  false, /* 6 */  false , /* 7 */ false, /* 8 */ false];
+
 const imagesKamer1 = [homeSluisKamer1_4, homeSluisKamer1_1, homeSluisKamer1_2];
 
 const imagesKamer2 = [homeSluisKamer2_1, homeSluisKamer2_2, homeSluisKamer2_3];
 
-const imagesKamer3 = [];
+const imagesKamer3 = [homeSluisKamer3_1, homeSluisKamer3_2, homeSluisKamer3_3 ];
 
 const imagesKamer4 = [homeSluisKamer4_1, homeSluisKamer4_2, homeSluisKamer4_3];
 
@@ -53,7 +62,21 @@ const imagesKamer7 = [homeSluisKamer7_1, homeSluisKamer7_2, homeSluisKamer7_3];
 const imagesKamer8 = [homeSluisKamer8_1, homeSluisKamer8_2, homeSluisKamer8_3];
 
 function Sluis() {
-  const [selectedRoom, setSelectedRoom] = React.useState(1);
+
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const kamer = urlParams.get('kamer');
+  
+  const [selectedRoom, setSelectedRoom] = React.useState(Number(kamer) || 1);
+
+  const showRoomAvailableIcon = (roomNumber) => {
+    return <span style={{marginLeft: '5px'}}>{kamerAvailable[roomNumber - 1] ? '✅' : '❌'}</span>
+  }
+
+  const showRoomAvailableText = (roomNumber) => {
+    return kamerAvailable[roomNumber -1 ] ? <></> : <span style={{marginLeft: '5px'}}>(verhuurd)</span>
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -87,6 +110,9 @@ function Sluis() {
                 en intercom systeem aanwezig.
               </Typography>
             </Stack>
+            <a  target="_blank" href="https://www.kuleuven.be/stuvo/kot/zoeken/prive/kotlabel">
+              <img alt="kot label groen" src={kotLabel} style={{ width: "100px", height: "100px" }} />
+            </a>
           </Stack>
           <Divider variant="middle" width="80%" sx={{ margin: "20px" }} />
           <Stack direction="row" gap={2}>
@@ -94,41 +120,49 @@ function Sluis() {
               <a href="#" onClick={() => setSelectedRoom(1)}>
                 Kamer 1
               </a>
+              { showRoomAvailableIcon(1) } 
             </Typography>
             <Typography color="text.secondary" textAlign="left" paragraph>
               <a href="#" onClick={() => setSelectedRoom(2)}>
                 Kamer 2
               </a>
+              { showRoomAvailableIcon(2) } 
             </Typography>
             <Typography color="text.secondary" textAlign="left" paragraph>
               <a href="#" onClick={() => setSelectedRoom(3)}>
                 Kamer 3
               </a>
+              { showRoomAvailableIcon(3) } 
             </Typography>
             <Typography color="text.secondary" textAlign="left" paragraph>
               <a href="#" onClick={() => setSelectedRoom(4)}>
                 Kamer 4
               </a>
+              { showRoomAvailableIcon(4) } 
             </Typography>
             <Typography color="text.secondary" textAlign="left" paragraph>
               <a href="#" onClick={() => setSelectedRoom(5)}>
                 Kamer 5
               </a>
+              { showRoomAvailableIcon(5) } 
             </Typography>
             <Typography color="text.secondary" textAlign="left" paragraph>
               <a href="#" onClick={() => setSelectedRoom(6)}>
                 Kamer 6
               </a>
+              { showRoomAvailableIcon(6) } 
             </Typography>
             <Typography color="text.secondary" textAlign="left" paragraph>
               <a href="#" onClick={() => setSelectedRoom(7)}>
                 Kamer 7
               </a>
+              { showRoomAvailableIcon(7) } 
             </Typography>
             <Typography color="text.secondary" textAlign="left" paragraph>
               <a href="#" onClick={() => setSelectedRoom(8)}>
                 Kamer 8
               </a>
+              { showRoomAvailableIcon(8) } 
             </Typography>
           </Stack>
           <Divider variant="middle" width="80%" sx={{ margin: "5px" }} />
@@ -142,7 +176,8 @@ function Sluis() {
                   textAlign="left"
                   paragraph
                 >
-                  Kamer 1
+                  Kamer 1 
+                  { showRoomAvailableText(1) } 
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
                   Charmante ruime kamer (4x5m²) op de gelijkvloers. Twee grote
@@ -171,6 +206,7 @@ function Sluis() {
                   paragraph
                 >
                   Kamer 2
+                  { showRoomAvailableText(2) } 
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
                   Gezellige mezzanine (3x5m²) op de gelijkvloers. Groot raam met
@@ -198,6 +234,7 @@ function Sluis() {
                   paragraph
                 >
                   Kamer 3
+                  { showRoomAvailableText(3) } 
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
                   Charmante ruime kamer (4x5m²) op eerste verdieping. Drie grote
@@ -226,6 +263,7 @@ function Sluis() {
                   paragraph
                 >
                   Kamer 4
+                  { showRoomAvailableText(4) } 
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
                   Eenvoudige kamer (3x5m²) op eerste verdieping. Groot raam met
@@ -253,6 +291,7 @@ function Sluis() {
                   paragraph
                 >
                   Kamer 5
+                  { showRoomAvailableText(5) } 
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
                   Charmante ruime kamer (4x5m²) op tweede verdieping. Drie grote
@@ -281,6 +320,7 @@ function Sluis() {
                   paragraph
                 >
                   Kamer 6
+                  { showRoomAvailableText(6) } 
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
                   Stijlvolle kamer (3x5m²) op tweede verdieping. Groot raam met
@@ -308,6 +348,7 @@ function Sluis() {
                   paragraph
                 >
                   Kamer 7
+                  { showRoomAvailableText(7) } 
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
                   Gezellige zolderkamer (4x5m²) op derde verdieping. Twee
@@ -336,6 +377,7 @@ function Sluis() {
                   paragraph
                 >
                   Kamer 8
+                  { showRoomAvailableText(8) } 
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
                   Gezellige zolderkamer (3x5m²) op derde verdieping. Grote velux
@@ -354,6 +396,14 @@ function Sluis() {
                 </Carousel>
               </Box>
             )}
+            <Stack>
+              <Typography color="text.primary" textAlign="center" paragraph variant="h7">
+                Meer informatie?
+                </Typography>
+                <Typography color="text.primary" textAlign="center" paragraph variant="h6">
+                Stuur een e-mail naar: <a href="mailto:sluis@villairmaverhuur.be">sluis@villairmaverhuur.be</a>
+                </Typography>
+            </Stack>
             <a href="/">
               <Stack alignItems="center" width="100%" paddingBottom="50px">
                 <img src={villaIrmaLogo} style={{ width: "200px" }} />

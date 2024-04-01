@@ -2,6 +2,8 @@ import logo from "./logo.png";
 import homeSluis from "./homeSluis.png";
 import homeVlam from "./homeVlam.png";
 import villaIrmaLogo from "./villaIrmaLogo.png";
+import kotLabel from "./Kot-label-groen.png";
+
 
 import "./App.css";
 import Confetti from "react-confetti";
@@ -23,7 +25,12 @@ function Home() {
       <header className="App-header">
         <Stack direction="row" flexWrap="wrap">
           <Stack alignItems="center" width="100%" paddingTop="20px">
-            <img src={villaIrmaLogo} style={{ width: "200px" }} />
+            <Stack direction="row">
+            <img src={villaIrmaLogo} style={{ width: "200px", marginLeft:"100px"}} />
+            <a target="_blank" href="https://www.kuleuven.be/stuvo/kot/zoeken/prive/kotlabel">
+              <img alt="kot label groen" src={kotLabel} style={{ width: "100px", height: "100px" }} />
+            </a>
+            </Stack>
             <Typography
               gutterBottom
               variant="h5"
@@ -35,7 +42,6 @@ function Home() {
             <Typography variant="body2" color="text.primary">
               Koten in Leuven
             </Typography>
-
             <Divider variant="middle" width="80%" sx={{ margin: "20px" }} />
           </Stack>
           <Stack

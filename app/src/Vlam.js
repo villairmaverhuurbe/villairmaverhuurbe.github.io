@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import kotLabel from "./Kot-label-groen.png";
 import homeVlam from "./homeVlam.png";
 import homeVlamSide from "./homeVlamSide.png";
 
@@ -50,6 +51,8 @@ import { Stack, Divider, Box } from "@mui/material";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
+const kamerAvailable = [ /* 1 */ true, /* 2 */ false, /* 3 */  false, /* 4 */ false, /* 5 */  false, /* 6 */  false , /* 7 */ false, /* 8 */ false, /* 9 */ true, /* 10 */ false];
+
 const imagesKamer1 = [homeVlamKamer1_3, homeVlamKamer1_1, homeVlamKamer1_2];
 
 const imagesKamer2 = [homeVlamKamer2_1, homeVlamKamer2_3, homeVlamKamer2_2 ];
@@ -70,8 +73,21 @@ const imagesKamer9 = [homeVlamKamer9_1, homeVlamKamer9_2, homeVlamKamer9_3];
 
 const imagesKamer10 = [homeVlamKamer10_1, homeVlamKamer10_3, homeVlamKamer10_2];
 
+const showRoomAvailableIcon = (roomNumber) => {
+  return <span style={{marginLeft: '5px'}}>{kamerAvailable[roomNumber - 1] ? '✅' : '❌'}</span>
+}
+
+const showRoomAvailableText = (roomNumber) => {
+  return kamerAvailable[roomNumber -1 ] ? <></> : <span style={{marginLeft: '5px'}}>(verhuurd)</span>
+}
+
 function Vlam() {
-  const [selectedRoom, setSelectedRoom] = React.useState(1);
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const kamer = urlParams.get('kamer');
+  
+  const [selectedRoom, setSelectedRoom] = React.useState(Number(kamer) || 1);
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -100,57 +116,70 @@ function Vlam() {
                 Elegant studentenhuis, gelegen in centrum Leuven. Aangename buurt met het Stadspark, de Grote en de Oude markt op wandelafstand. Dicht bij faculteit Rechten, Talen en Economie. 10 studio’s met gemeenschappelijke fietsenstalling. Drie verdiepingen met privé badkamer en keuken. Draadloos internet.
               </Typography>
             </Stack>
+            <a  href="https://www.kuleuven.be/stuvo/kot/zoeken/prive/kotlabel">
+              <img alt="kot label groen" target="_blank" src={kotLabel} style={{ width: "100px", height: "100px" }} />
+            </a>
           </Stack>
           <Divider variant="middle" width="80%" sx={{ margin: "20px" }} />
           <Stack direction="row" gap={2}>
             <Typography color="text.secondary" textAlign="left" paragraph>
               <a href="#" onClick={() => setSelectedRoom(1)}>
                 Kamer 1
+                { showRoomAvailableIcon(1) } 
               </a>
             </Typography>
             <Typography color="text.secondary" textAlign="left" paragraph>
               <a href="#" onClick={() => setSelectedRoom(2)}>
                 Kamer 2
+                { showRoomAvailableIcon(2) } 
               </a>
             </Typography>
             <Typography color="text.secondary" textAlign="left" paragraph>
               <a href="#" onClick={() => setSelectedRoom(3)}>
                 Kamer 3
+                { showRoomAvailableIcon(3) } 
               </a>
             </Typography>
             <Typography color="text.secondary" textAlign="left" paragraph>
               <a href="#" onClick={() => setSelectedRoom(4)}>
                 Kamer 4
+                { showRoomAvailableIcon(4) } 
               </a>
             </Typography>
             <Typography color="text.secondary" textAlign="left" paragraph>
               <a href="#" onClick={() => setSelectedRoom(5)}>
                 Kamer 5
+                { showRoomAvailableIcon(5) } 
               </a>
             </Typography>
             <Typography color="text.secondary" textAlign="left" paragraph>
               <a href="#" onClick={() => setSelectedRoom(6)}>
                 Kamer 6
+                { showRoomAvailableIcon(6) } 
               </a>
             </Typography>
             <Typography color="text.secondary" textAlign="left" paragraph>
               <a href="#" onClick={() => setSelectedRoom(7)}>
                 Kamer 7
+                { showRoomAvailableIcon(7) } 
               </a>
             </Typography>
             <Typography color="text.secondary" textAlign="left" paragraph>
               <a href="#" onClick={() => setSelectedRoom(8)}>
                 Kamer 8
+                { showRoomAvailableIcon(8) } 
               </a>
             </Typography>
             <Typography color="text.secondary" textAlign="left" paragraph>
               <a href="#" onClick={() => setSelectedRoom(9)}>
                 Kamer 9
+                { showRoomAvailableIcon(9) } 
               </a>
             </Typography>
             <Typography color="text.secondary" textAlign="left" paragraph>
               <a href="#" onClick={() => setSelectedRoom(10)}>
                 Kamer 10
+                { showRoomAvailableIcon(10) } 
               </a>
             </Typography>
           </Stack>
@@ -166,6 +195,7 @@ function Vlam() {
                   paragraph
                 >
                   Kamer 1
+                  { showRoomAvailableText(1) } 
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
                 Lumineuze kamer op gelijkvloers (16m²) met twee grote ramen en behoud van originele marmeren schouwmantel. De kamer heeft ook een hoogslaperconstructie en is daardoor extra ruim. Bezit eigen kitchenette en badkamer (lavabo en douche). Toilet in de gang en te delen met 3 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig. 
@@ -188,6 +218,7 @@ function Vlam() {
                   paragraph
                 >
                   Kamer 2
+                  { showRoomAvailableText(2) } 
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
                 Aangename kamer op gelijkvloers (18m²) met uitzicht op privé terras. Rustig milieu met eigen kitchenette en badkamer (lavabo en douche). Behoud van originele marmeren schouwmantel en door de hoogslaperconstructie is de kamer extra ruim. Toilet aanwezig in de gang en te delen met 3 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig.
@@ -210,6 +241,7 @@ function Vlam() {
                   paragraph
                 >
                   Kamer 3
+                  { showRoomAvailableText(3) } 
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
                 Ruime dubbele kamer op gelijkvloers (23m²) met uitzicht op privé terras. Rustig studiemilieu met eigen kitchenette en badkamer (lavabo en douche). Toilet aanwezig in de gang en te delen met 3 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig. 
@@ -232,6 +264,7 @@ function Vlam() {
                   paragraph
                 >
                   Kamer 4
+                  { showRoomAvailableText(4) } 
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
                 Lumineuze kamer op eerste verdieping (22m²) met twee grote ramen. Rustig studiemilieu met eigen kitchenette en badkamer (lavabo en douche). Toilet aanwezig in de gang en te delen met 3 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig. 
@@ -254,6 +287,7 @@ function Vlam() {
                   paragraph
                 >
                   Kamer 5
+                  { showRoomAvailableText(5) } 
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
                 De kleinste, maar ook de gezelligste kamer van de eerste verdieping (14m²). De kamer heeft een hoogslaperconstructie waardoor veel mogelijk is. Eigen kitchenette en badkamer (lavabo en douche). Toilet aanwezig in de gang en te delen met 3 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig.
@@ -276,6 +310,7 @@ function Vlam() {
                   paragraph
                 >
                   Kamer 6
+                  { showRoomAvailableText(6) } 
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
                 Ruime dubbele kamer op eerste verdieping (22m²). Rustig studiemilieu met eigen kitchenette en badkamer (lavabo en douche). Toilet aanwezig in de gang en te delen met 3 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig. 
@@ -298,6 +333,7 @@ function Vlam() {
                   paragraph
                 >
                   Kamer 7
+                  { showRoomAvailableText(7) } 
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
                 Een gezellige kamer op de tweede verdieping (13m²) met uitzicht op de daken van onze pittoreske stad Leuven. Kamer heeft eigen kitchenette en badkamer (lavabo en douche). Rustig studiemilieu met toilet aanwezig in de gang om te delen met 4 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig. 
@@ -321,6 +357,7 @@ function Vlam() {
                   paragraph
                 >
                   Kamer 8
+                  { showRoomAvailableText(8) } 
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
                 Sfeervolle kamer op de tweede verdieping (14m²) met lumineuze ramen. Rustig studiemilieu met eigen kitchenette en badkamer (lavabo en douche). Toilet aanwezig in de gang en te delen met 4 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig. 
@@ -344,6 +381,7 @@ function Vlam() {
                   paragraph
                 >
                   Kamer 9
+                  { showRoomAvailableText(9) } 
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
                 Ruime mezzanine op de tweede verdieping (28m²) met lumineuze ramen. Rustig studiemilieu met eigen kitchenette en badkamer (lavabo en douche). Toilet aanwezig in de gang en te delen met 4 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig. 
@@ -367,6 +405,7 @@ function Vlam() {
                   paragraph
                 >
                   Kamer 10
+                  { showRoomAvailableText(10) } 
                 </Typography>
                 <Typography color="text.secondary" textAlign="left" paragraph>
                 Ruime dubbele kamer op de tweede verdieping (22m²) met eigen privé terras. Rustig studiemilieu met eigen kitchenette en badkamer (lavabo en douche). Toilet aanwezig in de gang en te delen met 4 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig. 
@@ -380,6 +419,14 @@ function Vlam() {
                 </Carousel>
               </Box>
             )}
+            <Stack>
+              <Typography color="text.primary" textAlign="center" paragraph variant="h7">
+                Meer informatie?
+                </Typography>
+                <Typography color="text.primary" textAlign="center" paragraph variant="h6">
+                Stuur een e-mail naar: <a href="mailto:vlam@villairmaverhuur.be">vlam@villairmaverhuur.be</a>
+                </Typography>
+            </Stack>
             <a href="/">
               <Stack alignItems="center" width="100%" paddingBottom="50px">
                 <img src={villaIrmaLogo} style={{ width: "200px" }} />
