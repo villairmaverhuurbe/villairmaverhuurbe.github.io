@@ -2,6 +2,7 @@
   "name": "app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://villairmaverhuur.be",
   "dependencies": {
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
@@ -19,13 +20,19 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "BUILD_PATH=../docs react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "postbuild": "react-snap"
   },
   "reactSnap": {
-    "inlineCss": true
+    "inlineCss": true,
+    "source": "../docs",
+    "include": [
+      "/",
+      "/sluis",
+      "/vlam"
+    ]
   },
   "eslintConfig": {
     "extends": [

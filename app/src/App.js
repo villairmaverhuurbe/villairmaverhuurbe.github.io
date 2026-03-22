@@ -1,21 +1,20 @@
-// import { Route, Routes, BrowserRouter } from "react-router-dom";
-
 import "./App.css";
 import Home from "./Home";
 import Sluis from "./Sluis";
 import Vlam from "./Vlam";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-  // return <Home/>
-  // const currentPath = window.location.href;
-  // return currentPath.indexOf("sluis") > 0 ? <Sluis /> : currentPath.indexOf("vlam") > 0 ? <Vlam/> : <Home />;
-  // <BrowserRouter>
-  //   <Routes>
-  //     < Route exact path="/" Component={Home}/>
-  //     < Route exact path="/sluis" Component={Sluis}/>
-  //     < Route exact path="/vlam" Component={Vlam}/>
-  //   </Routes>
-  // </BrowserRouter>
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/sluis" element={<Sluis />} />
+        <Route path="/vlam" element={<Vlam />} />
+        <Route path="*" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;

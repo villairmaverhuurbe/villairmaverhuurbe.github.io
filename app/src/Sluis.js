@@ -43,7 +43,7 @@ import { Stack, Divider, Box } from "@mui/material";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-const kamerAvailable = [ /* 1 */ false, /* 2 */ false, /* 3 */  true, /* 4 */ false, /* 5 */  false, /* 6 */  false , /* 7 */ false, /* 8 */ false];
+const kamerAvailable = [ /* 1 */ false, /* 2 */ false, /* 3 */  false, /* 4 */ true, /* 5 */  false, /* 6 */  false , /* 7 */ true, /* 8 */ false];
 
 const imagesKamer1 = [homeSluisKamer1_4, homeSluisKamer1_1, homeSluisKamer1_2];
 
@@ -73,9 +73,25 @@ function Sluis() {
     return <span style={{marginLeft: '5px'}}>{kamerAvailable[roomNumber - 1] ? '✅' : '❌'}</span>
   }
 
-  const showRoomAvailableText = (roomNumber) => {
-    return kamerAvailable[roomNumber -1 ] ? <></> : <span style={{marginLeft: '5px'}}>(verhuurd)</span>
+const showRoomAvailableText = (roomNumber) => {
+  return kamerAvailable[roomNumber -1 ] ? <></> : <span style={{marginLeft: '5px'}}>(verhuurd)</span>
+}
+
+const renderCarousel = (images, roomNumber) => {
+  if (!kamerAvailable[roomNumber - 1]) {
+    return null;
   }
+
+  return (
+    <Carousel useKeyboardArrows={false}>
+      {images.map((URL, index) => (
+        <div className="slide">
+          <img alt="sample_file" src={URL} key={index} />
+        </div>
+      ))}
+    </Carousel>
+  );
+}
 
   return (
     <div className="App">
@@ -188,13 +204,7 @@ function Sluis() {
                   datzelfde verdiep. Gemeenschappelijke keuken met een gedeelde
                   tuin met ruimte voor fietsen. Draadloos internet.
                 </Typography>
-                <Carousel useKeyboardArrows={false}>
-                  {imagesKamer1.map((URL, index) => (
-                    <div className="slide">
-                      <img alt="sample_file" src={URL} key={index} />
-                    </div>
-                  ))}
-                </Carousel>
+                {renderCarousel(imagesKamer1, 1)}
               </Box>
             )}
             {selectedRoom === 2 && (
@@ -216,13 +226,7 @@ function Sluis() {
                   van datzelfde verdiep. Gemeenschappelijke keuken met een
                   gedeelde tuin met ruimte voor fietsen. Draadloos internet.
                 </Typography>
-                <Carousel useKeyboardArrows={false}>
-                  {imagesKamer2.map((URL, index) => (
-                    <div className="slide">
-                      <img alt="sample_file" src={URL} key={index} />
-                    </div>
-                  ))}
-                </Carousel>
+                {renderCarousel(imagesKamer2, 2)}
               </Box>
             )}
             {selectedRoom === 3 && (
@@ -245,13 +249,7 @@ function Sluis() {
                   Gemeenschappelijke keuken met een gedeelde tuin met ruimte
                   voor fietsen. Draadloos internet.
                 </Typography>
-                <Carousel useKeyboardArrows={false}>
-                  {imagesKamer3.map((URL, index) => (
-                    <div className="slide">
-                      <img alt="sample_file" src={URL} key={index} />
-                    </div>
-                  ))}
-                </Carousel>
+                {renderCarousel(imagesKamer3, 3)}
               </Box>
             )}
             {selectedRoom === 4 && (
@@ -273,13 +271,7 @@ function Sluis() {
                   Gemeenschappelijke keuken met een gedeelde tuin met ruimte
                   voor fietsen. Draadloos internet.
                 </Typography>
-                <Carousel useKeyboardArrows={false}>
-                  {imagesKamer4.map((URL, index) => (
-                    <div className="slide">
-                      <img alt="sample_file" src={URL} key={index} />
-                    </div>
-                  ))}
-                </Carousel>
+                {renderCarousel(imagesKamer4, 4)}
               </Box>
             )}
             {selectedRoom === 5 && (
@@ -302,13 +294,7 @@ function Sluis() {
                   Gemeenschappelijke keuken met een gedeelde tuin met ruimte
                   voor fietsen. Draadloos internet.
                 </Typography>
-                <Carousel useKeyboardArrows={false}>
-                  {imagesKamer5.map((URL, index) => (
-                    <div className="slide">
-                      <img alt="sample_file" src={URL} key={index} />
-                    </div>
-                  ))}
-                </Carousel>
+                {renderCarousel(imagesKamer5, 5)}
               </Box>
             )}
             {selectedRoom === 6 && (
@@ -330,13 +316,7 @@ function Sluis() {
                   Gemeenschappelijke keuken met een gedeelde tuin met ruimte
                   voor fietsen. Draadloos internet.
                 </Typography>
-                <Carousel useKeyboardArrows={false}>
-                  {imagesKamer6.map((URL, index) => (
-                    <div className="slide">
-                      <img alt="sample_file" src={URL} key={index} />
-                    </div>
-                  ))}
-                </Carousel>
+                {renderCarousel(imagesKamer6, 6)}
               </Box>
             )}
             {selectedRoom === 7 && (
@@ -358,13 +338,7 @@ function Sluis() {
                   persoon van datzelfde verdiep. Gemeenschappelijke keuken met
                   een gedeelde tuin met ruimte voor fietsen. Draadloos internet.
                 </Typography>
-                <Carousel useKeyboardArrows={false}>
-                  {imagesKamer7.map((URL, index) => (
-                    <div className="slide">
-                      <img alt="sample_file" src={URL} key={index} />
-                    </div>
-                  ))}
-                </Carousel>
+                {renderCarousel(imagesKamer7, 7)}
               </Box>
             )}
 
@@ -387,13 +361,7 @@ function Sluis() {
                   datzelfde verdiep. Gemeenschappelijke keuken met een gedeelde
                   tuin met ruimte voor fietsen. Draadloos internet.
                 </Typography>
-                <Carousel useKeyboardArrows={false}>
-                  {imagesKamer8.map((URL, index) => (
-                    <div className="slide">
-                      <img alt="sample_file" src={URL} key={index} />
-                    </div>
-                  ))}
-                </Carousel>
+                {renderCarousel(imagesKamer8, 8)}
               </Box>
             )}
             <Stack>

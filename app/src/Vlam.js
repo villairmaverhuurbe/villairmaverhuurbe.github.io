@@ -51,7 +51,7 @@ import { Stack, Divider, Box } from "@mui/material";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-const kamerAvailable = [ /* 1 */ true, /* 2 */ false, /* 3 */  false, /* 4 */ false, /* 5 */  false, /* 6 */  false , /* 7 */ false, /* 8 */ false, /* 9 */ true, /* 10 */ false];
+const kamerAvailable = [ /* 1 */ false, /* 2 */ true, /* 3 */  true, /* 4 */ false, /* 5 */  false, /* 6 */  true , /* 7 */ true, /* 8 */ true, /* 9 */ false, /* 10 */ false];
 
 const imagesKamer1 = [homeVlamKamer1_3, homeVlamKamer1_1, homeVlamKamer1_2];
 
@@ -79,6 +79,22 @@ const showRoomAvailableIcon = (roomNumber) => {
 
 const showRoomAvailableText = (roomNumber) => {
   return kamerAvailable[roomNumber -1 ] ? <></> : <span style={{marginLeft: '5px'}}>(verhuurd)</span>
+}
+
+const renderCarousel = (images, roomNumber) => {
+  if (!kamerAvailable[roomNumber - 1]) {
+    return null;
+  }
+
+  return (
+    <Carousel useKeyboardArrows={false}>
+      {images.map((URL, index) => (
+        <div className="slide">
+          <img alt="sample_file" src={URL} key={index} />
+        </div>
+      ))}
+    </Carousel>
+  );
 }
 
 function Vlam() {
@@ -200,13 +216,7 @@ function Vlam() {
                 <Typography color="text.secondary" textAlign="left" paragraph>
                 Lumineuze kamer op gelijkvloers (16m²) met twee grote ramen en behoud van originele marmeren schouwmantel. De kamer heeft ook een hoogslaperconstructie en is daardoor extra ruim. Bezit eigen kitchenette en badkamer (lavabo en douche). Toilet in de gang en te delen met 3 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig. 
                 </Typography>
-                <Carousel useKeyboardArrows={false}>
-                  {imagesKamer1.map((URL, index) => (
-                    <div className="slide">
-                      <img alt="sample_file" src={URL} key={index} />
-                    </div>
-                  ))}
-                </Carousel>
+                {renderCarousel(imagesKamer1, 1)}
               </Box>
             )}
             {selectedRoom === 2 && (
@@ -223,13 +233,7 @@ function Vlam() {
                 <Typography color="text.secondary" textAlign="left" paragraph>
                 Aangename kamer op gelijkvloers (18m²) met uitzicht op privé terras. Rustig milieu met eigen kitchenette en badkamer (lavabo en douche). Behoud van originele marmeren schouwmantel en door de hoogslaperconstructie is de kamer extra ruim. Toilet aanwezig in de gang en te delen met 3 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig.
                 </Typography>
-                <Carousel useKeyboardArrows={false}>
-                  {imagesKamer2.map((URL, index) => (
-                    <div className="slide">
-                      <img alt="sample_file" src={URL} key={index} />
-                    </div>
-                  ))}
-                </Carousel>
+                {renderCarousel(imagesKamer2, 2)}
               </Box>
             )}
             {selectedRoom === 3 && (
@@ -246,13 +250,7 @@ function Vlam() {
                 <Typography color="text.secondary" textAlign="left" paragraph>
                 Ruime dubbele kamer op gelijkvloers (23m²) met uitzicht op privé terras. Rustig studiemilieu met eigen kitchenette en badkamer (lavabo en douche). Toilet aanwezig in de gang en te delen met 3 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig. 
                 </Typography>
-                <Carousel useKeyboardArrows={false}>
-                  {imagesKamer3.map((URL, index) => (
-                    <div className="slide">
-                      <img alt="sample_file" src={URL} key={index} />
-                    </div>
-                  ))}
-                </Carousel>
+                {renderCarousel(imagesKamer3, 3)}
               </Box>
             )}
             {selectedRoom === 4 && (
@@ -269,13 +267,7 @@ function Vlam() {
                 <Typography color="text.secondary" textAlign="left" paragraph>
                 Lumineuze kamer op eerste verdieping (22m²) met twee grote ramen. Rustig studiemilieu met eigen kitchenette en badkamer (lavabo en douche). Toilet aanwezig in de gang en te delen met 3 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig. 
                 </Typography>
-                <Carousel useKeyboardArrows={false}>
-                  {imagesKamer4.map((URL, index) => (
-                    <div className="slide">
-                      <img alt="sample_file" src={URL} key={index} />
-                    </div>
-                  ))}
-                </Carousel>
+                {renderCarousel(imagesKamer4, 4)}
               </Box>
             )}
             {selectedRoom === 5 && (
@@ -292,13 +284,7 @@ function Vlam() {
                 <Typography color="text.secondary" textAlign="left" paragraph>
                 De kleinste, maar ook de gezelligste kamer van de eerste verdieping (14m²). De kamer heeft een hoogslaperconstructie waardoor veel mogelijk is. Eigen kitchenette en badkamer (lavabo en douche). Toilet aanwezig in de gang en te delen met 3 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig.
                 </Typography>
-                <Carousel useKeyboardArrows={false}>
-                  {imagesKamer5.map((URL, index) => (
-                    <div className="slide">
-                      <img alt="sample_file" src={URL} key={index} />
-                    </div>
-                  ))}
-                </Carousel>
+                {renderCarousel(imagesKamer5, 5)}
               </Box>
             )}
             {selectedRoom === 6 && (
@@ -315,13 +301,7 @@ function Vlam() {
                 <Typography color="text.secondary" textAlign="left" paragraph>
                 Ruime dubbele kamer op eerste verdieping (22m²). Rustig studiemilieu met eigen kitchenette en badkamer (lavabo en douche). Toilet aanwezig in de gang en te delen met 3 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig. 
                 </Typography>
-                <Carousel useKeyboardArrows={false}>
-                  {imagesKamer6.map((URL, index) => (
-                    <div className="slide">
-                      <img alt="sample_file" src={URL} key={index} />
-                    </div>
-                  ))}
-                </Carousel>
+                {renderCarousel(imagesKamer6, 6)}
               </Box>
             )}
             {selectedRoom === 7 && (
@@ -338,13 +318,7 @@ function Vlam() {
                 <Typography color="text.secondary" textAlign="left" paragraph>
                 Een gezellige kamer op de tweede verdieping (13m²) met uitzicht op de daken van onze pittoreske stad Leuven. Kamer heeft eigen kitchenette en badkamer (lavabo en douche). Rustig studiemilieu met toilet aanwezig in de gang om te delen met 4 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig. 
                 </Typography>
-                <Carousel useKeyboardArrows={false}>
-                  {imagesKamer7.map((URL, index) => (
-                    <div className="slide">
-                      <img alt="sample_file" src={URL} key={index} />
-                    </div>
-                  ))}
-                </Carousel>
+                {renderCarousel(imagesKamer7, 7)}
               </Box>
             )}
 
@@ -362,13 +336,7 @@ function Vlam() {
                 <Typography color="text.secondary" textAlign="left" paragraph>
                 Ruime mezzanine op de tweede verdieping (28m²) met lumineuze ramen. Rustig studiemilieu met eigen kitchenette en badkamer (lavabo en douche). Toilet aanwezig in de gang en te delen met 4 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig.
                 </Typography>
-                <Carousel useKeyboardArrows={false}>
-                  {imagesKamer8.map((URL, index) => (
-                    <div className="slide">
-                      <img alt="sample_file" src={URL} key={index} />
-                    </div>
-                  ))}
-                </Carousel>
+                {renderCarousel(imagesKamer8, 8)}
               </Box>
             )}
 
@@ -386,13 +354,7 @@ function Vlam() {
                 <Typography color="text.secondary" textAlign="left" paragraph>
                 Sfeervolle kamer op de tweede verdieping (14m²) met lumineuze ramen. Rustig studiemilieu met eigen kitchenette en badkamer (lavabo en douche). Toilet aanwezig in de gang en te delen met 4 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig. 
                 </Typography>
-                <Carousel useKeyboardArrows={false}>
-                  {imagesKamer9.map((URL, index) => (
-                    <div className="slide">
-                      <img alt="sample_file" src={URL} key={index} />
-                    </div>
-                  ))}
-                </Carousel>
+                {renderCarousel(imagesKamer9, 9)}
               </Box>
             )}
 
@@ -410,13 +372,7 @@ function Vlam() {
                 <Typography color="text.secondary" textAlign="left" paragraph>
                 Ruime dubbele kamer op de tweede verdieping (22m²) met eigen privé terras. Rustig studiemilieu met eigen kitchenette en badkamer (lavabo en douche). Toilet aanwezig in de gang en te delen met 4 andere studenten. Op aanvraag is de kamer bemeubeld huren mogelijk. Een gemeenschappelijke fietsenstalling aanwezig. 
                 </Typography>
-                <Carousel useKeyboardArrows={false}>
-                  {imagesKamer10.map((URL, index) => (
-                    <div className="slide">
-                      <img alt="sample_file" src={URL} key={index} />
-                    </div>
-                  ))}
-                </Carousel>
+                {renderCarousel(imagesKamer10, 10)}
               </Box>
             )}
             <Stack>
