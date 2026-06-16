@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.aff64404.css",
-    "main.js": "/static/js/main.f84c7061.js",
+    "main.js": "/static/js/main.92f43c53.js",
     "static/js/787.0f8d78ff.chunk.js": "/static/js/787.0f8d78ff.chunk.js",
     "static/media/homeVlamKamer10-3.jpeg": "/static/media/homeVlamKamer10-3.63f854869daff79c298c.jpeg",
     "static/media/homeVlamKamer8-3.jpeg": "/static/media/homeVlamKamer8-3.02762a9f378c08e0d0f9.jpeg",
@@ -66,11 +66,11 @@
     "static/media/logo.png": "/static/media/logo.6043840cb5df3deb056f.png",
     "index.html": "/index.html",
     "main.aff64404.css.map": "/static/css/main.aff64404.css.map",
-    "main.f84c7061.js.map": "/static/js/main.f84c7061.js.map",
+    "main.92f43c53.js.map": "/static/js/main.92f43c53.js.map",
     "787.0f8d78ff.chunk.js.map": "/static/js/787.0f8d78ff.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.aff64404.css",
-    "static/js/main.f84c7061.js"
+    "static/js/main.92f43c53.js"
   ]
 }
