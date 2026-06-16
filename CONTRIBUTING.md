@@ -38,3 +38,7 @@ git checkout HEAD -- docs/404.html docs/sluis/index.html docs/vlam/index.html
 5. Push and open a PR into `main`
 
 GitHub Pages serves directly from the `docs/` folder on `main`.
+
+## Note
+
+This file was added to document the workflow for Claude Code sessions. When starting a new session, Claude will read this file to understand how to make and deploy changes correctly.
