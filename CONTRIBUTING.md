@@ -29,6 +29,15 @@ The `postbuild` step runs `react-snap` to pre-render pages. This requires Chrome
 git checkout HEAD -- docs/404.html docs/sluis/index.html docs/vlam/index.html
 ```
 
+**Important:** Each build produces a new JS bundle with a content-hash filename (e.g. `main.92f43c53.js`). The pre-rendered pages embed a hardcoded reference to the old bundle name. After restoring them from git, update the bundle reference in all three files:
+
+```bash
+sed -i 's/main\.<old-hash>\.js/main.<new-hash>.js/g' \
+  docs/vlam/index.html docs/sluis/index.html docs/404.html
+```
+
+The new hash is visible in `docs/index.html` or `docs/asset-manifest.json`. Failure to do this breaks navigation to `/vlam/` and `/sluis/` on the live site.
+
 ## Workflow
 
 1. Edit source files in `app/src/`
