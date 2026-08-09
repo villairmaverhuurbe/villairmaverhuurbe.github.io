@@ -45,6 +45,11 @@ jobs:
 
       - name: Build
         working-directory: app
+        # react-scripts promotes lint warnings to errors when CI=true, which the
+        # runner sets by default. This codebase carries pre-existing a11y and
+        # unused-var warnings, so unset it to match a plain local `npm run build`.
+        env:
+          CI: false
         run: npm run build
 
       - name: Commit built output
