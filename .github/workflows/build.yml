@@ -19,6 +19,9 @@ jobs:
     # Pinned to 22.04: react-snap bundles an old puppeteer/chromium that expects
     # the pre-t64 library names (libasound2, libxss1) still shipped on this image.
     runs-on: ubuntu-22.04
+    # react-snap hangs rather than exiting when chromium fails to start, so cap
+    # the job instead of letting it idle for the 6h default.
+    timeout-minutes: 15
 
     steps:
       - uses: actions/checkout@v4
