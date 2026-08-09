@@ -32,6 +32,10 @@
       "/",
       "/sluis",
       "/vlam"
+    ],
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
     ]
   },
   "eslintConfig": {

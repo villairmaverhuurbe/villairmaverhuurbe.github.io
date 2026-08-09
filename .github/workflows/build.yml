@@ -1,0 +1,68 @@
+name: Build site
+
+on:
+  push:
+    branches:
+      - main
+      - 'claude/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    # Pinned to 22.04: react-snap bundles an old puppeteer/chromium that expects
+    # the pre-t64 library names (libasound2, libxss1) still shipped on this image.
+    runs-on: ubuntu-22.04
+    # react-snap hangs rather than exiting when chromium fails to start, so cap
+    # the job instead of letting it idle for the 6h default.
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # react-snap pre-renders pages with headless chromium. Without these the
+      # postbuild step dies on "libXss.so.1: cannot open shared object file",
+      # which silently leaves docs/vlam and docs/sluis pointing at a stale bundle.
+      - name: Install chromium runtime libraries
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libxss1 libnss3 libnspr4 libatk1.0-0 libatk-bridge2.0-0 \
+            libcups2 libdrm2 libxkbcommon0 libxcomposite1 libxdamage1 \
+            libxfixes3 libxrandr2 libgbm1 libpango-1.0-0 libcairo2 \
+            libasound2 libgtk-3-0 fonts-liberation
+
+      - name: Install dependencies
+        working-directory: app
+        run: npm ci
+
+      - name: Build
+        working-directory: app
+        # react-scripts promotes lint warnings to errors when CI=true, which the
+        # runner sets by default. This codebase carries pre-existing a11y and
+        # unused-var warnings, so unset it to match a plain local `npm run build`.
+        env:
+          CI: false
+        run: npm run build
+
+      - name: Commit built output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs
+          if git diff --staged --quiet; then
+            echo "docs/ is already up to date"
+          else
+            git commit -m "Rebuild docs [skip ci]"
+            git push origin HEAD:${GITHUB_REF_NAME}
+          fi
