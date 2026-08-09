@@ -43,7 +43,7 @@ import { Stack, Divider, Box } from "@mui/material";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-const kamerAvailable = [ /* 1 */ false, /* 2 */ false, /* 3 */  false, /* 4 */ false, /* 5 */  false, /* 6 */  false , /* 7 */ false, /* 8 */ false];
+const kamerAvailable = [ /* 1 */ false, /* 2 */ false, /* 3 */  false, /* 4 */ false, /* 5 */  true, /* 6 */  false , /* 7 */ false, /* 8 */ false];
 
 const imagesKamer1 = [homeSluisKamer1_4, homeSluisKamer1_1, homeSluisKamer1_2];
 
